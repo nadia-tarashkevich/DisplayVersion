@@ -21,10 +21,9 @@
 
     <actions>
         <group id="DisplayVersion.Toolbar" text="DisplayVersion" description="Display IDE version">
-            <add-to-group group-id="MainToolBar" anchor="first" />
+            <add-to-group group-id="MainToolbarRight" anchor="first" />
             <action id="Display Version"
                     class="org.jetbrains.support.DisplayVersion"
-                    text="Display Version"
                     description="Display IDE version"
                     icon="AllIcons.Toolbar.Unknown" />
 
