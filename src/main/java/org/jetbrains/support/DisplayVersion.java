@@ -13,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+// version from the branch1
+
 public class DisplayVersion extends com.intellij.openapi.actionSystem.AnAction{
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
