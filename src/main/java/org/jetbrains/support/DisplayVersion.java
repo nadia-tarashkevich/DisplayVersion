@@ -15,14 +15,27 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class DisplayVersion extends com.intellij.openapi.actionSystem.AnAction{
+
+    private final String iconText;
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         // This action does nothing
     }
 
+    public DisplayVersion() {
+        super();
+
+        ApplicationInfo appInfo = ServiceManager.getService(ApplicationInfo.class);
+        String version = appInfo.getFullVersion();
+        String build = appInfo.getBuild().asString();
+        iconText = version + " " + build;
+    }
+
+
     public void update(AnActionEvent e) {
         Presentation presentation = e.getPresentation();
         presentation.setIcon(getIcon());
+        presentation.setText("Version number: " + iconText);
     }
 
     /***
@@ -30,12 +43,6 @@ public class DisplayVersion extends com.intellij.openapi.actionSystem.AnAction{
      * @return icon type
      */
     private Icon getIcon() {
-        ApplicationInfo appInfo = ServiceManager.getService(ApplicationInfo.class);
-        String version = appInfo.getFullVersion();
-        String build = appInfo.getBuild().asString();
-        String iconText = version + " " + build;
-
-
         // set up font
         EditorColorsScheme colorsScheme = EditorColorsManager.getInstance().getGlobalScheme();
         String fontName = colorsScheme.getFont(EditorFontType.PLAIN).getFontName();
